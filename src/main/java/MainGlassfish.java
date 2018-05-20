@@ -36,7 +36,7 @@ public class MainGlassfish {
        
 
 	// Create a scattered web application.
-	ScatteredArchive archive = new ScatteredArchive("holaMundo",
+	ScatteredArchive archive = new ScatteredArchive("api",
 	ScatteredArchive.Type.WAR, new File(webappDirLocation));
         // target/classes directory contains my complied servlets
 	archive.addClassPath(new File("target", "classes"));

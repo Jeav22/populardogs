@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.sergioArboleda.dao;
+package co.edu.usa.ingereq.populardogs.dao;
 
 import java.net.URI;
 import java.net.URISyntaxException;
