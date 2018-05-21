@@ -46,7 +46,7 @@ public class ServicioUsuario {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public boolean crearUsuario(UsuarioDto usr) {
+    public UsuarioDto crearUsuario(UsuarioDto usr) {
         try {
             Usuario u = new Usuario();
             u.setNombre(usr.getNombre());
@@ -54,9 +54,9 @@ public class ServicioUsuario {
             u.setContrasena(usr.getContrasena());
             u.setImagen(usr.getImagen());
             UsuarioFachada.save(u);
-            return true;
+            return null;
         } catch (Exception e) {
-            return false;
+            return null;
         }
     }
 
