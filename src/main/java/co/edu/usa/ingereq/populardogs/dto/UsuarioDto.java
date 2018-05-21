@@ -12,6 +12,7 @@ public class UsuarioDto {
     private String nombre;
     private String correo;
     private String imagen;
+    private String contrasena;
 
     public int getId() {
         return id;
@@ -45,4 +46,12 @@ public class UsuarioDto {
         this.imagen = imagen;
     }
 
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+    
 }

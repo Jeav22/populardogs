@@ -72,6 +72,7 @@ public class ServicioUsuario {
         usuarioDto.setNombre(u.getNombre());
         usuarioDto.setCorreo(u.getCorreo());
         usuarioDto.setImagen(u.getImagen());
+        usuarioDto.setContrasena(u.getContrasena());
         usuarioDto.setId(u.getId());
         return usuarioDto;
     }
