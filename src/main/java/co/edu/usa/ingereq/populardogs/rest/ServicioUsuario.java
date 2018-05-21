@@ -6,6 +6,7 @@ import co.edu.usa.ingereq.populardogs.exception.ConexionException;
 import co.edu.usa.ingereq.populardogs.jpa.Usuario;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -43,10 +44,16 @@ public class ServicioUsuario {
     }
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public boolean crearUsuario(Usuario usr) {
+    public boolean crearUsuario(UsuarioDto usr) {
         try {
-            UsuarioFachada.save(usr);
+            Usuario u = new Usuario();
+            u.setNombre(usr.getNombre());
+            u.setCorreo(usr.getCorreo());
+            u.setContrasena(usr.getContrasena());
+            u.setImagen(usr.getImagen());
+            UsuarioFachada.save(u);
             return true;
         } catch (Exception e) {
             return false;
