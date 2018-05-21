@@ -9,7 +9,7 @@
     </properties>
         
     <dependencies>
-          <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -64,6 +64,10 @@
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-server</artifactId>
             <version>1.8</version>
+            <init-param>
+                <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+                <param-value>true</param-value>
+            </init-param>
         </dependency>
                 
     </dependencies>
