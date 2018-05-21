@@ -8,6 +8,7 @@ import co.edu.usa.ingereq.populardogs.exception.ConexionException;
 import co.edu.usa.ingereq.populardogs.jpa.Usuario;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -45,10 +46,18 @@ public class ServicioComentario {
     }
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public boolean crearComentario(Comentario usr) {
+    public boolean crearComentario(ComentarioDto usr) {
         try {
-            ComentarioFachada.save(usr);
+            Comentario c = new Comentario();
+            c.setComentario(usr.getComentario());
+            c.setFecha(usr.getFecha());
+            Usuario u = new Usuario();
+            u.setNombre(usr.getUsuario().getNombre());
+            u.setImagen(usr.getUsuario().getImagen());
+            c.setUsuario(u);
+            ComentarioFachada.save(c);
             return true;
         } catch (Exception e) {
             return false;
