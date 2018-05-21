@@ -48,7 +48,7 @@ public class ServicioComentario {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public boolean crearComentario(ComentarioDto usr) {
+    public ComentarioDto crearComentario(ComentarioDto usr) {
         try {
             Comentario c = new Comentario();
             c.setComentario(usr.getComentario());
@@ -58,9 +58,9 @@ public class ServicioComentario {
             u.setImagen(usr.getUsuario().getImagen());
             c.setUsuario(u);
             ComentarioFachada.save(c);
-            return true;
+            return null;
         } catch (Exception e) {
-            return false;
+            return null;
         }
     }
 
