@@ -56,6 +56,8 @@ public class ServicioComentario {
             Usuario u = new Usuario();
             u.setNombre(usr.getUsuario().getNombre());
             u.setImagen(usr.getUsuario().getImagen());
+            u.setContrasena("null");
+            u.setCorreo("null");
             c.setUsuario(u);
             ComentarioFachada.save(c);
             return null;
